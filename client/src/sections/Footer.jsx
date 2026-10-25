@@ -4,7 +4,7 @@ import { FaLinkedinIn } from 'react-icons/fa6';
 
 export default function Footer({ profile }) {
   return (
-    <footer className="site-footer">
+    <footer id="contact" className="site-footer">
       <div className="footer-main">
         <div>
           <span className="eyebrow">Have something in mind?</span>

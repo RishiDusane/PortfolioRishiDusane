@@ -1,6 +1,6 @@
 # Rishi Dusane — Portfolio
 
-A responsive, dark-themed single-page portfolio. Portfolio content is stored in MySQL and served to the React client by a read-only Express API.
+A responsive, dark-themed single-page portfolio. The frontend includes static portfolio content and can be deployed independently; an optional read-only Express API can override that content.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ A responsive, dark-themed single-page portfolio. Portfolio content is stored in 
    npm install
    ```
 
-2. Copy `server/.env.example` to `server/.env` and set the credentials for a MySQL user that can create databases. Copy `client/.env.example` to `client/.env` if the API is not at `http://localhost:3000/api`.
+2. Copy `server/.env.example` to `server/.env` and set the credentials for a MySQL user that can create databases. To use the optional API in the client, set `VITE_API_URL` in `client/.env` to its base URL. Without that setting, the client uses its bundled static content and does not contact a backend.
 
    Required server settings: `PORT`, `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, and `CLIENT_ORIGIN`. `CLIENT_ORIGIN` can be a comma-separated list of exact allowed origins.
 
@@ -45,7 +45,7 @@ npm run build
 
 ## Resume
 
-Place your PDF at `client/public/Rishi_Dusane_Resume.pdf`. The navbar and hero download buttons link directly to `/Rishi_Dusane_Resume.pdf`.
+Place your actual PDF at `client/public/resume.pdf`. The hero and navbar download buttons link directly to `/resume.pdf`, which Vite and Vercel serve as a static asset.
 
 ## Docker
 
@@ -59,6 +59,17 @@ Visit `http://localhost:8080`. Nginx serves the SPA with history fallback and pr
 
 ## Deployment notes
 
+- **Vercel frontend:** create a project from this repository and set the Root Directory to `client`, Framework Preset to `Vite`, Build Command to `npm run build`, and Output Directory to `dist`. The frontend builds from its own package manifest and uses bundled static content unless an optional `VITE_API_URL` is configured.
+- The Vercel project is the `client` npm workspace. Its `vercel.json` installs from the workspace root (using the root `package-lock.json`) and builds the Vite client to `dist`; this does not start or require the API or database.
+- From the repository root, push the portfolio changes with:
+
+  ```sh
+  git add README.md client
+  git commit -m "Prepare portfolio frontend for Vercel"
+  git push origin main
+  ```
+
+- After deployment, open the site URL and `/resume.pdf` directly. Check the About, Skills, Projects, Education, and Contact links, then click either Download Resume button and confirm the downloaded file is `Rishi_Dusane_Resume.pdf`.
 - **Generic VPS:** build the images with Docker Compose, use strong database credentials, configure a persistent MySQL volume, and put a TLS-enabled reverse proxy (such as Caddy or Nginx) in front of the client.
 - **Render/Railway:** deploy the client and server as separate services, provision a managed MySQL 8 database, and set the server environment variables in the provider dashboard. Set `CLIENT_ORIGIN` to the deployed client origin. Build the client with `VITE_API_URL` pointing to the public API base URL plus `/api`, or keep the bundled Nginx proxy when deploying the Docker stack.
 - Keep secrets in provider environment settings; do not commit `.env` files. Run `npm run db:setup` once against the target database before exposing the app.

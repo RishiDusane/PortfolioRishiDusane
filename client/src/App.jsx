@@ -28,7 +28,7 @@ export default function App() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <Navbar resumePath={data.profile.resume_path} />
+      <Navbar />
       <main id="main-content">
         <Hero profile={data.profile} />
         <About profile={data.profile} />

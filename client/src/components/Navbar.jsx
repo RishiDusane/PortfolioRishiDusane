@@ -8,9 +8,10 @@ const links = [
   ['Projects', 'projects'],
   ['Education', 'education'],
   ['Achievements', 'achievements'],
+  ['Contact', 'contact'],
 ];
 
-export default function Navbar({ resumePath }) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -36,7 +37,7 @@ export default function Navbar({ resumePath }) {
               </a>
             ))}
           </div>
-          <ResumeDownload className="button button-small button-outline" resumePath={resumePath}>
+          <ResumeDownload className="button button-small button-outline">
             Download Resume <span aria-hidden="true">↗</span>
           </ResumeDownload>
         </div>

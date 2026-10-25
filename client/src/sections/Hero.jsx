@@ -51,10 +51,10 @@ export default function Hero({ profile }) {
         <p className="hero-tagline">{profile.tagline}</p>
         <p className="hero-description">{profile.intro}</p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#projects">
+          <a className="button button-outline" href="#projects">
             View Projects <ArrowUpRight size={17} />
           </a>
-          <ResumeDownload className="button button-outline" resumePath={profile.resume_path}>
+          <ResumeDownload className="button button-primary">
             <Download size={16} /> Download Resume
           </ResumeDownload>
         </div>
