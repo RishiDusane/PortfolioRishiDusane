@@ -1,4 +1,4 @@
-# Rishi Dusane — Portfolio
+# Rishi Dusane — Portfolio https://portfolio-rishi-dusane.vercel.app/
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3da054b3-550a-41e6-a7b0-1801508cdb72" />
 
 A responsive, dark-themed single-page portfolio. The frontend includes static portfolio content and can be deployed independently; an optional read-only Express API can override that content.
