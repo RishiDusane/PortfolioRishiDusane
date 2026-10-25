@@ -1,4 +1,5 @@
 # Rishi Dusane — Portfolio
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3da054b3-550a-41e6-a7b0-1801508cdb72" />
 
 A responsive, dark-themed single-page portfolio. Portfolio content is stored in MySQL and served to the React client by a read-only Express API.
 
