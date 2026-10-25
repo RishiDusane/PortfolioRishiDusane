@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b0f19"/>
+  <path d="M0 520 1200 100" stroke="#5eead4" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="930" cy="175" r="250" fill="#5eead4" fill-opacity=".06"/>
+  <text x="100" y="245" fill="#5eead4" font-family="monospace" font-size="28">SOFTWARE ENGINEER</text>
+  <text x="95" y="350" fill="#e6edf7" font-family="sans-serif" font-size="78" font-weight="700">Rishi Dusane</text>
+  <text x="100" y="415" fill="#929eb2" font-family="sans-serif" font-size="30">MERN · Spring Boot · Full-stack development</text>
+</svg>
